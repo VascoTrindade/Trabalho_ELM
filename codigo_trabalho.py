@@ -1,14 +1,16 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 #lê csv
-path_desemprego = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\\desemprego.csv"
-path_envelhecimento = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\\envelhicimento.csv"
-path_emprego = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\\populacao_empregada.csv"
+#path_desemprego = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\\desemprego.csv"
+#path_envelhecimento = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\\envelhicimento.csv"
+#path_emprego = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\\populacao_empregada.csv"
 
 #Ricardo
-#path_desemprego = r"C:\Programming\Elementos\Trabalho\desemprego.csv"
-#path_envelhecimento = r"C:\Programming\Elementos\Trabalho\envelhicimento.csv"
-#path_emprego = r"C:\Programming\Elementos\Trabalho\populaçao_empregada.csv"
+path_desemprego = r"C:\Programming\Elementos\Trabalho\desemprego.csv"
+path_envelhecimento = r"C:\Programming\Elementos\Trabalho\envelhicimento.csv"
+path_emprego = r"C:\Programming\Elementos\Trabalho\populaçao_empregada.csv"
 
 #Vasco
 #path_desemprego = r"C:\Users\DELL\PycharmProjects\Trabalho_ELM\desemprego.csv"
@@ -49,5 +51,42 @@ print(df_final.head())
 df_final.to_csv("dados_integrados.csv", sep=';', index=False)
 
 
+# Verificar valores em falta
+print("\n Valores em falta por coluna:")
+print(df_final.isnull().sum())
 
+# Ver estatísticas descritivas
+print("\n Estatísticas descritivas:")
+print(df_final.describe())
 
+# Verificar duplicados
+print("\n Entradas duplicadas:")
+print(df_final.duplicated().sum())
+
+# Verificar correlação entre variáveis
+print("\n Correlação entre variáveis:")
+print(df_final.corr(numeric_only=True))
+
+# Mapa de calor de correlação
+plt.figure(figsize=(8, 6))
+sns.heatmap(df_final.corr(numeric_only=True), annot=True, cmap="coolwarm", fmt=".2f")
+plt.title("Mapa de Correlação entre Variáveis")
+plt.show()
+
+# Boxplots para deteção de outliers
+plt.figure(figsize=(15, 4))
+for i, col in enumerate(["Indice_Envelhecimento", "Desemprego_Jovem", "Populacao_Empregada"]):
+    plt.subplot(1, 3, i + 1)
+    sns.boxplot(y=df_final[col])
+    plt.title(f"Outliers em {col}")
+plt.tight_layout()
+plt.show()
+
+# Histogramas para distribuição
+plt.figure(figsize=(15, 4))
+for i, col in enumerate(["Indice_Envelhecimento", "Desemprego_Jovem", "Populacao_Empregada"]):
+    plt.subplot(1, 3, i + 1)
+    sns.histplot(df_final[col], bins=30, kde=True)
+    plt.title(f"Distribuição de {col}")
+plt.tight_layout()
+plt.show()
