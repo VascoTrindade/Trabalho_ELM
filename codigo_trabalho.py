@@ -1,14 +1,14 @@
 import pandas as pd
 
 #lê csv
-path_desemprego = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\\desemprego.csv"
-path_envelhecimento = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\\envelhicimento.csv"
-path_emprego = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\\populacao_empregada.csv"
+#path_desemprego = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\\desemprego.csv"
+#path_envelhecimento = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\\envelhicimento.csv"
+#path_emprego = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\\populacao_empregada.csv"
 
 #Ricardo
-#path_desemprego = ""
-#path_envelhecimento = ""
-#path_emprego = ""
+path_desemprego = r"C:\Programming\Elementos\Trabalho\desemprego.csv"
+path_envelhecimento = r"C:\Programming\Elementos\Trabalho\envelhicimento.csv"
+path_emprego = r"C:\Programming\Elementos\Trabalho\populaçao_empregada.csv"
 
 #Vasco
 #path_desemprego = ""
