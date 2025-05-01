@@ -11,9 +11,9 @@ path_emprego = "C:\\Users\\carlo\\Licenciatura\\2_ano\\2_semestre\\EIA\\projeto\
 #path_emprego = r"C:\Programming\Elementos\Trabalho\populaçao_empregada.csv"
 
 #Vasco
-#path_desemprego = ""
-#path_envelhecimento = ""
-#path_emprego = ""
+path_desemprego = r"C:\Users\DELL\PycharmProjects\Trabalho_ELM\desemprego.csv"
+path_envelhecimento = r"C:\Users\DELL\PycharmProjects\Trabalho_ELM\envelhicimento.csv"
+path_emprego = r"C:\Users\DELL\PycharmProjects\Trabalho_ELM\populacao_empregada.csv"
 
 df_desemprego = pd.read_csv(path_desemprego, sep=';')
 df_envelhecimento = pd.read_csv(path_envelhecimento, sep=';')
