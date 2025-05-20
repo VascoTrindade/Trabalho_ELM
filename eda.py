@@ -1,5 +1,8 @@
-import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('C:\Programming\Elementos\TPcsv\juncao_corrigida.csv', sep=';')
 
 def mostrar_boxplots(df, colunas):
     plt.figure(figsize = (15,4))
@@ -33,4 +36,54 @@ def mapa_corelacao(df):
     ax.set_yticklabels(corr.columns)
     plt.title("Mapa de correlação entre variáveis",pad=20)
     plt.tight_layout()
+    plt.show()
+
+
+#Tornar em funções
+
+print("Informações gerais:")
+print(df.info())
+print("\nEstatísticas descritivas:")
+print(df.describe(include='all'))
+
+# 2. Verificar valores em falta
+print("\nValores em falta por coluna:")
+missing = df.isnull().sum()
+print(missing[missing > 0])
+
+print("\nColunas com valor único (sem variabilidade):")
+low_variance = [col for col in df.columns if df[col].nunique() == 1]
+print(low_variance)
+
+num_cols = df.select_dtypes(include=np.number).columns
+
+for col in num_cols:
+    plt.figure(figsize=(6, 4))
+    plt.boxplot(df[col].dropna(), vert=False)
+    plt.title(f'Boxplot de {col}')
+    plt.xlabel(col)
+    plt.grid(True)
+    plt.show()
+
+print("\nMatriz de correlação:")
+correlation = df[num_cols].corr()
+print(correlation)
+
+# Visualização da correlação (com Matplotlib)
+plt.figure(figsize=(10, 8))
+plt.imshow(correlation, cmap='coolwarm', interpolation='none')
+plt.colorbar(label='Correlação')
+plt.xticks(range(len(num_cols)), num_cols, rotation=90)
+plt.yticks(range(len(num_cols)), num_cols)
+plt.title("Matriz de Correlação")
+plt.tight_layout()
+plt.show()
+
+for col in num_cols:
+    plt.figure(figsize=(6, 4))
+    plt.hist(df[col].dropna(), bins=30, color='skyblue', edgecolor='black')
+    plt.title(f'Distribuição de {col}')
+    plt.xlabel(col)
+    plt.ylabel("Frequência")
+    plt.grid(True)
     plt.show()
