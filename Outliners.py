@@ -16,4 +16,3 @@ outliers = df[(df['09. Valor'] < limite_inferior) | (df['09. Valor'] > limite_su
 
 print(f'Total de outliers encontrados: {len(outliers)}')
 print(outliers.head())
-
