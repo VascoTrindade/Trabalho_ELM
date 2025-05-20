@@ -1,7 +1,7 @@
 import pandas as pd
 
 #Pode tornar-se numa função
-df = pd.read_csv('C:\Programming\Elementos\TPcsv\juncao.csv', sep=';')
+df = pd.read_csv('C:\\Users\\carlo\\OneDrive\\Ambiente de Trabalho\\Universidade\\Licenciatura\\2ª Ano de Licenciatura\\1º Semestre\\Programação (1ºano)\\Trabalho_ELM\\juncao.csv', sep=';')
 
 df['09. Valor'] = pd.to_numeric(df['09. Valor'], errors='coerce')
 

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bb78bb4b-fa85-4636-aee2-3cfba5d354d1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Trabalho_ELM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trabalho_ELM.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codigo_trabalho.py" beforeDir="false" afterPath="$PROJECT_DIR$/codigo_trabalho.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;carlotasantos&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/VascoTrindade/Trabalho_ELM.git&quot;,
+    &quot;accountId&quot;: &quot;203756ad-e667-40ba-b94f-8cc7cdc2c114&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2vdUpJ0EBXLxLyxTNRPzBHZPGqW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.Outliners.executor": "Run",
+    "Python.codigo_trabalho.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/carlo/Licenciatura/2_ano/2_semestre/ETD/labs/Lab12/swagger.rar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.24807.21" />
+        <option value="bundled-python-sdk-00717045f1d3-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.24807.21" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bb78bb4b-fa85-4636-aee2-3cfba5d354d1" name="Changes" comment="" />
+      <created>1744474626541</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744474626541</updated>
+      <workItem from="1744474627856" duration="94000" />
+      <workItem from="1744474769449" duration="14000" />
+      <workItem from="1744754006773" duration="31000" />
+      <workItem from="1744755416965" duration="4000" />
+      <workItem from="1745627480984" duration="8000" />
+      <workItem from="1745627529266" duration="954000" />
+      <workItem from="1745795711904" duration="35000" />
+      <workItem from="1746002114848" duration="358000" />
+      <workItem from="1746007855400" duration="9000" />
+      <workItem from="1746111917041" duration="1564000" />
+      <workItem from="1746113600487" duration="2771000" />
+      <workItem from="1746116441177" duration="825000" />
+      <workItem from="1746135017501" duration="2000" />
+      <workItem from="1746629332718" duration="55000" />
+      <workItem from="1746648269933" duration="5000" />
+      <workItem from="1746648298408" duration="4000" />
+      <workItem from="1747225914275" duration="909000" />
+      <workItem from="1747229679331" duration="80000" />
+      <workItem from="1747433989588" duration="641000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Trabalho_ELM$codigo_trabalho.coverage" NAME="codigo_trabalho Coverage Results" MODIFIED="1747226143566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
