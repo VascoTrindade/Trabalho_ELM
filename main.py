@@ -11,6 +11,6 @@ df_envelhecimento = preparar_dados(ler_csv(path_juncao), "Indice_Envelhecimento"
 df_emprego = preparar_dados(ler_csv(path_juncao), "População_Empregada")
 
 #Integração dos dados
-df_merge = pd.merge(df_envelhecimento, df_desemprego,on =["Ano","Municipio"],how="inner")
+df_merge = pd.merge(df_envelhecimento, df_envelhecimento, df_desemprego,on =["Ano","Municipio"],how="inner")
 df_final = pd.merge(df_merge, df_emprego, on= ["Ano","Municipio"],how="inner")
 
