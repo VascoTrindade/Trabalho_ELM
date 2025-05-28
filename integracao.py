@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 def integracao(pasta_csv, arquivo_saida='juncao_corrigida.csv'):
-    ficheiros = [f for f in os.listdir(pasta_csv) if f.endswith('.csv')]
+    ficheiros = [f for f in os.listdir(pasta_csv) if f.lower().endswith('.csv')]
 
     dfs = []
     for f in ficheiros:
@@ -33,7 +33,7 @@ def integracao(pasta_csv, arquivo_saida='juncao_corrigida.csv'):
         'Total': 'Total'
     })
 
-    df_pivot = df_pivot[['Ano', 'Território', 'Homens', 'Mulheres', 'Total']]
+    df_pivot = df_pivot[['Ano', 'Território', 'Total']]
 
     output_path = os.path.join(pasta_csv, arquivo_saida)
     df_pivot.to_csv(output_path, sep=';', index=False)
