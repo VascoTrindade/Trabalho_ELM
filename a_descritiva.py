@@ -1,14 +1,19 @@
-import pandas as pd
-from sklearn.cluster import KMeans
+from matplotlib import pyplot as plt
+from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+import pandas as pd
 from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
+
 
 def aplicar_kmeans(dados, n_clusters=3):
-    scaler = StandardScaler()
-    dados_norm = scaler.fit_transform(dados)
+    imputer = SimpleImputer(strategy='mean')
+    dados_sem_nan = imputer.fit_transform(dados)
 
-    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+    scaler = StandardScaler()
+    dados_norm = scaler.fit_transform(dados_sem_nan)
+
+    kmeans = KMeans(n_clusters=n_clusters, random_state=0)
     clusters = kmeans.fit_predict(dados_norm)
 
     print(f"\nDistribuição dos clusters (K-Means, k={n_clusters}):")

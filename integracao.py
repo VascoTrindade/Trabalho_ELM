@@ -33,7 +33,7 @@ def integracao(pasta_csv, arquivo_saida='juncao_corrigida.csv'):
         'Total': 'Total'
     })
 
-    df_pivot = df_pivot[['Ano', 'Território', 'Total']]
+    df_pivot = df_pivot[['Ano', 'Território', '25-34', '35-44', '45-54', '55 ou mais anos', 'Básico - 1º Ciclo', 'Básico - 2º Ciclo', 'Básico - 3º Ciclo e secundário', 'Educação Pré-Escolar', 'Homens', 'Mulheres', 'Total']]
 
     output_path = os.path.join(pasta_csv, arquivo_saida)
     df_pivot.to_csv(output_path, sep=';', index=False)
@@ -41,4 +41,4 @@ def integracao(pasta_csv, arquivo_saida='juncao_corrigida.csv'):
     print(f"Arquivo criado em: {output_path}")
     return output_path
 
-integracao('C:\\Users\\carlo\\OneDrive\\Ambiente de Trabalho\\Universidade\\Licenciatura\\2ª Ano de Licenciatura\\1º Semestre\\Programação (1ºano)\\Trabalho_ELM')
+integracao(r'C:\Programming\Elementos\TPcsv')
