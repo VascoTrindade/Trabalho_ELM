@@ -9,3 +9,7 @@ estatisticas_descritivas(dados_numericos)
 correlacao(dados_numericos)
 outliers(dados_numericos)
 
+from clustering import aplicar_kmeans
+
+clusters = aplicar_kmeans(dados_numericos, n_clusters=3)
+df['Cluster'] = clusters
