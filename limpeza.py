@@ -30,3 +30,6 @@ def limpeza_dados(caminho_csv, caminho_saida="juncao_limpo.csv"):
 
     df_numerico.to_csv(caminho_saida, index=False)
     print(f"Dados limpos salvos como '{caminho_saida}'")
+
+if __name__ == "__main__":
+    limpeza_dados("juncao_corrigida.csv")
