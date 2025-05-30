@@ -24,5 +24,9 @@ estatisticas_descritivas(df_limpo)
 correlacao(df_limpo)
 outliers(df_limpo)
 
-clusters = aplicar_kmeans(df_limpo, n_clusters=3)
-df_limpo['Cluster'] = clusters
+
+dados_numericos = df_limpo.select_dtypes(include='number')
+nomes_colunas = dados_numericos.columns.tolist()
+df_com_clusters, clusters = aplicar_kmeans(dados_numericos, n_clusters=4, nomes_colunas=nomes_colunas)
+df_limpo['Cluster'] = df_com_clusters['Cluster']
+
