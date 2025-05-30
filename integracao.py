@@ -41,4 +41,4 @@ def integracao(pasta_csv, arquivo_saida='juncao_corrigida.csv'):
     print(f"Arquivo criado em: {output_path}")
     return output_path
 
-integracao(r'C:\Programming\Elementos\TPcsv')
+integracao('C:\\Users\\carlo\\OneDrive\\Ambiente de Trabalho\\Universidade\\Licenciatura\\2ª Ano de Licenciatura\\1º Semestre\\Programação (1ºano)\\csv')
