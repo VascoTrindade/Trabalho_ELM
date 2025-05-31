@@ -32,13 +32,14 @@ técnicas de análise exploratória, pré-processamento e **machine learning** p
 ## Estrutura do Projeto
 ```bash
 |-- integracao.py             # Integração dos ficheiros CSV da PORDATA
-|--eda.py
-|--limpeza.py
-|--a_descritiva.py
-|--main.py
-|--juncao_corrigida.csv
-|--juncao_limpa.csv
-|--dados_clusterizados
+|--eda.py                     # Análise exploratória e visualizações
+|--limpeza.py                 # Limpeza, imputação e outliers
+|--a_descritiva.py            #K-Means e análises descritivas
+|--main.py                    # Script principal
+|--juncao_corrigida.csv       # Dados integrados
+|--juncao_limpa.csv           # Dados limpos
+|--dados_clustering           # Dados com clusters
+
 
 
 
