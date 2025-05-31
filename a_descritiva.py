@@ -8,7 +8,6 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.decomposition import PCA
 
-
 def escolher_k(dados_norm, k_min=2, k_max=10):
     distortions = []
     silhouettes = []
@@ -79,3 +78,59 @@ def aplicar_kmeans(dados, n_clusters=3, nomes_colunas=None, exportar_csv=True):
         print("\nArquivo 'dados_clusterizados.csv' criado com os clusters atribuídos.")
 
     return df_resultado, clusters
+
+
+def graficos_exploratorios(df):
+    plt.style.use('ggplot')
+
+    top_envelhecimento = df.sort_values(by="Pré-Escolar", ascending=False).head(10)
+    plt.figure(figsize=(10, 6))
+    sns.barplot(data=top_envelhecimento, x="Pré-Escolar", y=top_envelhecimento.index)
+    plt.title("Top 10 Municípios com Maior Índice de Envelhecimento Docente (Pré-Escolar)")
+    plt.xlabel("Índice de Envelhecimento")
+    plt.ylabel("Município")
+    plt.tight_layout()
+    plt.show()
+
+
+    top_desemprego = df.sort_values(by="Desemprego 25-34 anos", ascending=False).head(10)
+    plt.figure(figsize=(10, 6))
+    sns.barplot(data=top_desemprego, x="Desemprego 25-34 anos", y=top_desemprego.index)
+    plt.title("Top 10 Municípios com Maior Desemprego Jovem (25-34 anos)")
+    plt.xlabel("Desemprego")
+    plt.ylabel("Município")
+    plt.tight_layout()
+    plt.show()
+
+
+    plt.figure(figsize=(8, 6))
+    sns.scatterplot(data=df, x="Pré-Escolar", y="Desemprego 25-34 anos")
+    plt.title("Correlação entre Envelhecimento Docente e Desemprego Jovem")
+    plt.xlabel("Índice de Envelhecimento (Pré-Escolar)")
+    plt.ylabel("Desemprego Jovem (25-34 anos)")
+    plt.tight_layout()
+    plt.show()
+
+
+    df_grouped = df.groupby("Ano").mean().reset_index()
+    plt.figure(figsize=(10, 6))
+    plt.plot(df_grouped["Ano"], df_grouped["Desemprego 25-34 anos"], label="Desemprego Jovem")
+    plt.plot(df_grouped["Ano"], df_grouped["Pré-Escolar"], label="Envelhecimento Docente")
+    plt.title("Evolução Temporal: Desemprego Jovem e Envelhecimento Docente")
+    plt.xlabel("Ano")
+    plt.ylabel("Média")
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
+
+    escolaridade_cols = ["População com 1º Ciclo", "População com 2º Ciclo", "População com 3º Ciclo/Secundário"]
+    escolaridade_df = df[escolaridade_cols].mean().reset_index()
+    escolaridade_df.columns = ["Escolaridade", "Média População"]
+    plt.figure(figsize=(10, 6))
+    sns.barplot(data=escolaridade_df, x="Escolaridade", y="Média População")
+    plt.title("Média de População Empregada por Nível de Escolaridade")
+    plt.xlabel("Escolaridade")
+    plt.ylabel("População Empregada Média")
+    plt.tight_layout()
+    plt.show()
