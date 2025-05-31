@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.impute import SimpleImputer
@@ -35,9 +34,14 @@ def escolher_k(dados_norm, k_min=2, k_max=10):
     plt.tight_layout()
     plt.show()
 
-def aplicar_kmeans(dados, n_clusters=3, nomes_colunas=None, exportar_csv=True):
+def aplicar_kmeans(dados, n_clusters=3, exportar_csv=True):
+    col_ano = dados['Ano'] if 'Ano' in dados.columns else None
+    col_territorio = dados['Território'] if 'Território' in dados.columns else None
+
+    dados_numericos = dados.drop(columns=['Ano', 'Território'], errors='ignore')
+
     imputer = SimpleImputer(strategy='mean')
-    dados_sem_nan = imputer.fit_transform(dados)
+    dados_sem_nan = imputer.fit_transform(dados_numericos)
 
     scaler = StandardScaler()
     dados_norm = scaler.fit_transform(dados_sem_nan)
@@ -63,15 +67,16 @@ def aplicar_kmeans(dados, n_clusters=3, nomes_colunas=None, exportar_csv=True):
     plt.tight_layout()
     plt.show()
 
-    if nomes_colunas:
-        df_resultado = pd.DataFrame(dados, columns=nomes_colunas)
-    else:
-        df_resultado = pd.DataFrame(dados)
-
+    df_resultado = pd.DataFrame(dados_numericos.values, columns=dados_numericos.columns)
     df_resultado['Cluster'] = clusters
 
+    if col_ano is not None:
+        df_resultado.insert(0, 'Ano', col_ano.values)
+    if col_territorio is not None:
+        df_resultado.insert(1, 'Território', col_territorio.values)
+
     print("\nMédia de cada variável por cluster:")
-    print(df_resultado.groupby('Cluster').mean())
+    print(df_resultado.groupby('Cluster').mean(numeric_only=True))
 
     if exportar_csv:
         df_resultado.to_csv("dados_clusterizados.csv", index=False)
@@ -79,40 +84,36 @@ def aplicar_kmeans(dados, n_clusters=3, nomes_colunas=None, exportar_csv=True):
 
     return df_resultado, clusters
 
-
 def graficos_exploratorios(df):
     plt.style.use('ggplot')
 
     top_envelhecimento = df.sort_values(by="Pré-Escolar", ascending=False).head(10)
     plt.figure(figsize=(10, 6))
-    sns.barplot(data=top_envelhecimento, x="Pré-Escolar", y=top_envelhecimento.index)
+    sns.barplot(data=top_envelhecimento, x="Pré-Escolar", y="Território")
     plt.title("Top 10 Municípios com Maior Índice de Envelhecimento Docente (Pré-Escolar)")
     plt.xlabel("Índice de Envelhecimento")
     plt.ylabel("Município")
     plt.tight_layout()
     plt.show()
 
-
     top_desemprego = df.sort_values(by="Desemprego 25-34 anos", ascending=False).head(10)
     plt.figure(figsize=(10, 6))
-    sns.barplot(data=top_desemprego, x="Desemprego 25-34 anos", y=top_desemprego.index)
+    sns.barplot(data=top_desemprego, x="Desemprego 25-34 anos", y="Território")
     plt.title("Top 10 Municípios com Maior Desemprego Jovem (25-34 anos)")
     plt.xlabel("Desemprego")
     plt.ylabel("Município")
     plt.tight_layout()
     plt.show()
 
-
     plt.figure(figsize=(8, 6))
-    sns.scatterplot(data=df, x="Pré-Escolar", y="Desemprego 25-34 anos")
+    sns.scatterplot(data=df, x="Pré-Escolar", y="Desemprego 25-34 anos", hue="Cluster", palette="Set2")
     plt.title("Correlação entre Envelhecimento Docente e Desemprego Jovem")
     plt.xlabel("Índice de Envelhecimento (Pré-Escolar)")
     plt.ylabel("Desemprego Jovem (25-34 anos)")
     plt.tight_layout()
     plt.show()
 
-
-    df_grouped = df.groupby("Ano").mean().reset_index()
+    df_grouped = df.groupby("Ano").mean(numeric_only=True).reset_index()
     plt.figure(figsize=(10, 6))
     plt.plot(df_grouped["Ano"], df_grouped["Desemprego 25-34 anos"], label="Desemprego Jovem")
     plt.plot(df_grouped["Ano"], df_grouped["Pré-Escolar"], label="Envelhecimento Docente")
@@ -122,7 +123,6 @@ def graficos_exploratorios(df):
     plt.legend()
     plt.tight_layout()
     plt.show()
-
 
     escolaridade_cols = ["População com 1º Ciclo", "População com 2º Ciclo", "População com 3º Ciclo/Secundário"]
     escolaridade_df = df[escolaridade_cols].mean().reset_index()
