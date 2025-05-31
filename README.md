@@ -17,7 +17,7 @@
 ## Sobre o projeto
 Este projeto foi desenvolvido no âmbito da unidade curricular **Elementos de Inteligência Artificial e Ciência de Dados**.
 
-O foco pricipal deste projeto ´analisar o impacto conjunto de duas problematicas relevantes para o futuro socioeconómico dos municipios portugueses: o **envelhecimento do corpo docente** e o **desemprego jovem**.
+O foco pricipal deste projeto foi analisar o impacto conjunto de duas problemáticas relevantes para o futuro socioeconómico dos municipios portugueses: o **envelhecimento do corpo docente** e o **desemprego jovem**.
 
 Utilizando dados da [PORDATA](https://www.pordata.pt/municipios), aplicaram-se 
 técnicas de análise exploratória, pré-processamento e **machine learning** para descobrir padrões, relações e agrupamentos relevantes.
@@ -26,7 +26,7 @@ técnicas de análise exploratória, pré-processamento e **machine learning** p
 ## Objetivos
 -Identificar municípios com **elevado envelhecimento docente** e **alto desemprego jovem** <br>
 -Avaliar a **correlação entre escolariedade e empregabilidade** <br>
--Detectar variações temporais e reginais que evidenciem **falta de renovação geracional**.
+-Detectar variações temporais e regionais que evidenciem a **falta de renovação das gerações**.
 
 ---
 ## Estrutura do Projeto
@@ -43,7 +43,7 @@ técnicas de análise exploratória, pré-processamento e **machine learning** p
 ---
 ## Fases do Projeto
 ### 1. Recolha e Integração dos Dados
-Os dados foram recolhidos da PORDATA em ficheiros separados e posteriormente foram integrados com a função `integracao()`, que automatiza a fusão dos CSVs e transforma os dados num único dataset dataset estruturado por Ano, Território e Variáveis.
+Os dados foram recolhidos da PORDATA em ficheiros separados e posteriormente foram integrados com a função `integracao()`, que automatiza a fusão dos CSVs e transforma os dados num único dataset estruturado por Ano, Território e Variáveis.
 
 **Ficheiro Gerado**: `juncao_corrigida.csv`
 
@@ -59,12 +59,12 @@ Destaques:
 ---
 ### 3. Limpeza e Pré-processamento de Dados
 Foram aplicadas diversas técnicas de limpeza:
-- Remoção de colunas com muitos nulos;
-- Imputação de média para valores ausentes;
+- Remoção de colunas com vários valores nulos;
+- Imputação da média para valores ausentes;
 - Eliminação de outliers;
 - Exclusão de variáveis altamente correlacionadas.
 
-**Ficheiro Resultante**: `juncao_limpo.csv`
+**Ficheiro Final**: `juncao_limpo.csv`
 
 ---
 ### 4. Análise Descritiva e Clustering
