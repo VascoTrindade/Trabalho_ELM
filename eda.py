@@ -34,18 +34,23 @@ def correlacao(dados, limite=0.9):
     return list(pares_altamente_correlacionados.index.get_level_values(1).unique())
 
 def outliers(dados, z_thresh=3):
-    z_scores = (dados - dados.mean()) / dados.std()
-    outliers = (np.abs(z_scores) > z_thresh)
+    dados_numericos = dados.select_dtypes(include='number')
 
-    linhas_validas = ~(outliers.any(axis=1))
+    z_scores = (dados_numericos - dados_numericos.mean()) / dados_numericos.std()
+    outliers_mask = (np.abs(z_scores) > z_thresh)
+
+    linhas_validas = ~(outliers_mask.any(axis=1))
     print(f"\nRemovendo {len(dados) - linhas_validas.sum()} linhas com outliers (Z > {z_thresh})")
 
-    num_cols = dados.shape[1]
+    num_cols = dados_numericos.shape[1]
     cols = 4
     rows = math.ceil(num_cols / cols)
-    dados.plot(kind='box', subplots=True, layout=(rows, cols), figsize=(4 * cols, 3 * rows))
+    dados_numericos.plot(kind='box', subplots=True, layout=(rows, cols), figsize=(4 * cols, 3 * rows))
+    plt.tight_layout()
+    plt.show()
 
     return dados.loc[linhas_validas].copy()
+
 
 def graficos_exploratorios(df):
     plt.style.use('ggplot')
