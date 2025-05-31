@@ -79,8 +79,8 @@ def aplicar_kmeans(dados, n_clusters=3, exportar_csv=True):
     print(df_resultado.groupby('Cluster').mean(numeric_only=True))
 
     if exportar_csv:
-        df_resultado.to_csv("dados_clusterizados.csv", index=False)
-        print("\nArquivo 'dados_clusterizados.csv' criado com os clusters atribuídos.")
+        df_resultado.to_csv("dados_clustering.csv", index=False)
+        print("\nArquivo 'dados_clustering.csv' criado com os clusters atribuídos.")
 
     return df_resultado, clusters
 
