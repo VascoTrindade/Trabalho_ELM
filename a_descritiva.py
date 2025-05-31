@@ -43,7 +43,7 @@ def aplicar_kmeans(dados, n_clusters=3, nomes_colunas=None, exportar_csv=True):
     scaler = StandardScaler()
     dados_norm = scaler.fit_transform(dados_sem_nan)
 
-    print("\nAvaliar melhor número de clusters (opcional):")
+    print("\nAvaliar melhor número de clusters:")
     escolher_k(dados_norm, k_min=2, k_max=10)
 
     kmeans = KMeans(n_clusters=n_clusters, random_state=0)

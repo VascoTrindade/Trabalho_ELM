@@ -45,5 +45,4 @@ def outliers(dados, z_thresh=3):
     rows = math.ceil(num_cols / cols)
     dados.plot(kind='box', subplots=True, layout=(rows, cols), figsize=(4 * cols, 3 * rows))
 
-    return dados[linhas_validas]
-
+    return dados.loc[linhas_validas].copy()
